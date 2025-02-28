@@ -17,3 +17,14 @@ update-git-freeze:
 update-mak:
 	echo "TODO"
 
+.PHONY: setup
+setup:
+	bun install --frozen-lockfile
+
+.PHONY: clean
+clean:
+	rm -rf ./.temp
+
+.PHONY: reset
+reset: clean
+	rm -rf ./node_modules

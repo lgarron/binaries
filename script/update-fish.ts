@@ -25,7 +25,7 @@ await mkdir(TEMP_DIR_FISH, { recursive: true });
 
 await (async () => {
   for (const asset of data[0].assets) {
-    if (asset.name.includes("amd64")) {
+    if (asset.name.includes("x86_64")) {
       console.log(`Downloading: ${asset.browser_download_url}`);
       await $`curl --location --output ${TAR_XZ_PATH} ${asset.browser_download_url}`;
       return;

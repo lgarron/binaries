@@ -15,7 +15,7 @@ update-git-freeze: setup
 
 .PHONY: update-mak
 update-mak:
-	echo "TODO"
+	./script/update-mak.ts
 
 .PHONY: setup
 setup:

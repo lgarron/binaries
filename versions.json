@@ -1,5 +1,6 @@
 {
   "bun": "1.2.11",
   "fish": "fish, version 4.0.2",
-  "git-freeze": "8683dd4b28431e2c176b5ecec238d03a3e07eb2f"
+  "git-freeze": "8683dd4b28431e2c176b5ecec238d03a3e07eb2f",
+  "mak": "fake 0.1.0"
 }

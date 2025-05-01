@@ -29,14 +29,22 @@ await (async () => {
   for (const asset of data[0].assets) {
     if (asset.name.includes("x86_64") || asset.name.includes("amd64")) {
       console.log(`Downloading: ${asset.browser_download_url}`);
-      await new PrintableShellCommand("curl", ["--location", ["--output", TAR_XZ_PATH], asset.browser_download_url]).shellOutNode();
+      await new PrintableShellCommand("curl", [
+        "--location",
+        ["--output", TAR_XZ_PATH],
+        asset.browser_download_url,
+      ]).shellOutNode();
       return;
     }
   }
   exit(1);
 })();
 
-await new PrintableShellCommand("tar", ["xf",TAR_XZ_PATH, ["-C", TEMP_DIR_FISH]]).shellOutNode();
+await new PrintableShellCommand("tar", [
+  "xf",
+  TAR_XZ_PATH,
+  ["-C", TEMP_DIR_FISH],
+]).shellOutNode();
 
 for (const fileName of ["fish", "fish_indent", "fish_key_reader"]) {
   await $`mv ${join(TEMP_DIR_FISH, fileName)} ${join("./linux-x64/", fileName)}`;
@@ -44,4 +52,7 @@ for (const fileName of ["fish", "fish_indent", "fish_key_reader"]) {
 
 await rm(TEMP_DIR_FISH, { force: true, recursive: true });
 
-await recordVersion("fish", (await $`./linux-x64/fish --version`.text()).trim());
+await recordVersion(
+  "fish",
+  (await $`./linux-x64/fish --version`.text()).trim(),
+);

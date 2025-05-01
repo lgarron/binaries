@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
-import { $, file } from "bun";
 import { exit } from "node:process";
+import { $, file } from "bun";
 
 let exitCode = 0;
 

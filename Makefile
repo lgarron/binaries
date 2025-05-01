@@ -36,3 +36,7 @@ lint:
 .PHONY: format
 format:
 	bun x @biomejs/biome check --write
+
+.PHONY: check-versions
+check-versions:
+	bun run ./script/check-versions.ts

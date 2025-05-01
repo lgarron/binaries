@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { exit } from "node:process";
 import { $ } from "bun";
 import { PrintableShellCommand } from "printable-shell-command";
+import { recordVersion } from "./lib/record-version";
 
 const TEMP_DIR_FISH = "./.temp/fish";
 const TAR_XZ_PATH = join(TEMP_DIR_FISH, "fish.tar.xz");
@@ -42,3 +43,5 @@ for (const fileName of ["fish", "fish_indent", "fish_key_reader"]) {
 }
 
 await rm(TEMP_DIR_FISH, { force: true, recursive: true });
+
+await recordVersion("fish", (await $`./linux-x64/fish --version`.text()).trim());

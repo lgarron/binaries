@@ -44,3 +44,6 @@ format:
 .PHONY: check-versions
 check-versions:
 	bun run ./script/check-versions.ts
+
+.PHONY: test
+test: lint check-versions

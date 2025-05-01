@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@types/bun": "^1.2.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  }
+}

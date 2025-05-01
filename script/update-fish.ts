@@ -4,6 +4,7 @@ import { mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { exit } from "node:process";
 import { $ } from "bun";
+import { PrintableShellCommand } from "printable-shell-command";
 
 const TEMP_DIR_FISH = "./.temp/fish";
 const TAR_XZ_PATH = join(TEMP_DIR_FISH, "fish.tar.xz");
@@ -25,16 +26,16 @@ await mkdir(TEMP_DIR_FISH, { recursive: true });
 
 await (async () => {
   for (const asset of data[0].assets) {
-    if (asset.name.includes("x86_64")) {
+    if (asset.name.includes("x86_64") || asset.name.includes("amd64")) {
       console.log(`Downloading: ${asset.browser_download_url}`);
-      await $`curl --location --output ${TAR_XZ_PATH} ${asset.browser_download_url}`;
+      await new PrintableShellCommand("curl", ["--location", ["--output", TAR_XZ_PATH], asset.browser_download_url]).shellOutNode();
       return;
     }
   }
   exit(1);
 })();
 
-await $`tar -xzvf ${TAR_XZ_PATH} -C ${TEMP_DIR_FISH}`;
+await new PrintableShellCommand("tar", ["xf",TAR_XZ_PATH, ["-C", TEMP_DIR_FISH]]).shellOutNode();
 
 for (const fileName of ["fish", "fish_indent", "fish_key_reader"]) {
   await $`mv ${join(TEMP_DIR_FISH, fileName)} ${join("./linux-x64/", fileName)}`;

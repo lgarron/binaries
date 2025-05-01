@@ -19,7 +19,7 @@ update-mak:
 
 .PHONY: update-repo
 update-repo:
-	./script/update-mak.ts
+	./script/update-repo.ts
 
 .PHONY: setup
 setup:

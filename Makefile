@@ -2,15 +2,15 @@
 update: update-bun update-fish update-git-freeze update-mak
 
 .PHONY: update-bun
-update-bun:
+update-bun: setup
 	./script/update-bun.ts
 
 .PHONY: update-fish
-update-fish:
+update-fish: setup
 	./script/update-fish.ts
 
 .PHONY: update-git-freeze
-update-git-freeze:
+update-git-freeze: setup
 	./script/update-git-freeze.ts
 
 .PHONY: update-mak

@@ -3,5 +3,7 @@
   "fish": "fish, version 4.0.2",
   "git-freeze": "8683dd4b28431e2c176b5ecec238d03a3e07eb2f",
   "mak": "fake 0.1.0",
-  "repo": "repo 0.6.6"
+  "repo": "repo 0.6.6",
+  "toml2json": "toml2json 1.3.1",
+  "cargo-bump": "cargo-bump 1.1.0"
 }

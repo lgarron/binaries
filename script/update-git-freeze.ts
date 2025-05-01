@@ -12,4 +12,4 @@ for (const fileName of ["git-abandon", "git-freeze", "git-thaw"]) {
   await $`chmod +x ./linux-x64/${fileName}`;
 }
 
-recordVersion("git-freeze", sha);
+await recordVersion("git-freeze", sha);

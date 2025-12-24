@@ -2,9 +2,9 @@
   "postCreateCommand": "npm install --global bun && make setup",
   "image": "mcr.microsoft.com/devcontainers/rust:latest",
   "features": {
-    "ghcr.io/devcontainers/features/rust:1.3.2": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "19"
+    "ghcr.io/devcontainers/features/rust:1.5.0": {},
+    "ghcr.io/devcontainers/features/node:1.6.3": {
+      "version": "25"
     }
   }
 }

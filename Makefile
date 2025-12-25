@@ -1,5 +1,5 @@
 .PHONY: update
-update: update-bun update-fish update-git-freeze update-mak update-repo
+update: update-bun update-fish update-jj update-git-freeze update-mak update-repo
 
 .PHONY: update-bun
 update-bun: setup
@@ -8,6 +8,10 @@ update-bun: setup
 .PHONY: update-fish
 update-fish: setup
 	./script/update-fish.ts
+
+.PHONY: update-jj
+update-jj: setup
+	./script/update-jj.ts
 
 .PHONY: update-git-freeze
 update-git-freeze: setup

@@ -46,7 +46,8 @@ await new PrintableShellCommand("tar", [
   ["-C", TEMP_DIR_FISH],
 ]).shellOutNode();
 
-for (const fileName of ["fish", "fish_indent", "fish_key_reader"]) {
+console.log({TEMP_DIR_FISH})
+for (const fileName of ["fish"]) {
   await $`mv ${join(TEMP_DIR_FISH, fileName)} ${join("./linux-x64/", fileName)}`;
 }
 

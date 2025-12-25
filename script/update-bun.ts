@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env -S bun run --
 
 import { mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";

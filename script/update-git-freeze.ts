@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env -S bun run --
 
 import { $ } from "bun";
 import { recordVersion } from "./lib/record-version";

@@ -1,3 +1,6 @@
+.PHONY: check
+check: lint test
+
 .PHONY: update
 update: update-bun update-fish update-jj update-git-freeze update-mak update-repo
 
@@ -18,11 +21,11 @@ update-git-freeze: setup
 	./script/update-git-freeze.ts
 
 .PHONY: update-mak
-update-mak:
+update-mak: setup
 	./script/update-mak.ts
 
 .PHONY: update-repo
-update-repo:
+update-repo: setup
 	./script/update-repo.ts
 
 .PHONY: setup
@@ -38,16 +41,17 @@ reset: clean
 	rm -rf ./node_modules
 
 .PHONY: lint
-lint:
-	bun x @biomejs/biome check
+lint: setup
+	bun x -- bun-dx --package @biomejs/biome biome -- check
+	bun x -- bun-dx --package typescript tsc -- --project .
 
 .PHONY: format
-format:
-	bun x @biomejs/biome check --write
+format: setup
+	bun x -- bun-dx --package @biomejs/biome biome -- check --write
 
 .PHONY: check-versions
 check-versions:
 	bun run ./script/check-versions.ts
 
 .PHONY: test
-test: lint check-versions
+test: check-versions

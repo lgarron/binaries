@@ -2,7 +2,7 @@
 check: lint test
 
 .PHONY: update
-update: update-bun update-fish update-jj update-git-freeze update-mak update-repo
+update: update-bun update-fish update-jj update-gg update-git-freeze update-mak update-repo
 
 .PHONY: update-bun
 update-bun: setup
@@ -15,6 +15,10 @@ update-fish: setup
 .PHONY: update-jj
 update-jj: setup
 	./script/update-jj.ts
+
+.PHONY: update-gg
+update-gg: setup
+	./script/update-gg.ts
 
 .PHONY: update-git-freeze
 update-git-freeze: setup
@@ -31,6 +35,11 @@ update-repo: setup
 .PHONY: setup
 setup:
 	bun install --frozen-lockfile
+
+.PHONY: setup-codespace
+setup-codespace: setup
+	sudo apt update
+	sudo apt install rpm
 
 .PHONY: clean
 clean:

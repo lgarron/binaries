@@ -1,5 +1,5 @@
 {
-  "postCreateCommand": "npm install --global bun && make setup",
+  "postCreateCommand": "npm install --global bun && make setup-codespace",
   "image": "mcr.microsoft.com/devcontainers/rust:latest",
   "features": {
     "ghcr.io/devcontainers/features/rust:1.5.0": {},

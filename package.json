@@ -9,5 +9,8 @@
     "@cubing/dev-config": "^0.8.3",
     "bun-dx": "^0.1.4",
     "typescript": "^5.9.3"
+  },
+  "patchedDependencies": {
+    "undici-types@7.16.0": "patches/undici-types@7.16.0.patch"
   }
 }

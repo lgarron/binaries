@@ -2,7 +2,7 @@
 check: lint test
 
 .PHONY: update
-update: update-bun update-fish update-jj update-git-freeze update-mak update-repo
+update: update-bun update-fish update-jj update-git-freeze update-mak update-repo update-gg
 
 .PHONY: update-bun
 update-bun: setup
@@ -27,6 +27,10 @@ update-mak: setup
 .PHONY: update-repo
 update-repo: setup
 	./script/update-repo.ts
+
+.PHONY: update-gg
+update-gg: setup
+	./script/update-gg.ts
 
 .PHONY: setup
 setup:

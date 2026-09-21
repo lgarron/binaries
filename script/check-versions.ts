@@ -24,6 +24,7 @@ await checkVersion("mak", $`./linux-x64/mak --version`);
 await checkVersion("repo", $`./linux-x64/repo --version`);
 await checkVersion("toml2json", $`./linux-x64/toml2json --version`);
 await checkVersion("cargo-bump", $`./linux-x64/cargo-bump --version`);
+await checkVersion("gg", $`gg --version`);
 
 exit(exitCode);
 

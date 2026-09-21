@@ -24,7 +24,9 @@ await checkVersion("mak", $`./linux-x64/mak --version`);
 await checkVersion("repo", $`./linux-x64/repo --version`);
 await checkVersion("toml2json", $`./linux-x64/toml2json --version`);
 await checkVersion("cargo-bump", $`./linux-x64/cargo-bump --version`);
-await checkVersion("gg", $`gg --version`);
+
+await import("./install-gg-libs");
+await checkVersion("gg", $`./linux-x64/gg --version`);
 
 exit(exitCode);
 

@@ -36,13 +36,15 @@ update-gg: setup
 setup:
 	bun install --frozen-lockfile
 
+RM_RF = bun -e 'process.argv.slice(1).map(p => process.getBuiltinModule("node:fs").rmSync(p, {recursive: true, force: true, maxRetries: 5}))' --
+
 .PHONY: clean
 clean:
-	rm -rf ./.temp
+	rm -rf ./.temp/
 
 .PHONY: reset
 reset: clean
-	rm -rf ./node_modules
+	${RM_RF} ./node_modules/
 
 .PHONY: lint
 lint: setup
